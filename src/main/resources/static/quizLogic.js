@@ -36,6 +36,7 @@ const userScoreElement = document.getElementById("user-score")
 const correctAnswersList = document.getElementById("correct-answers")
 const resultSection = document.getElementById("result-section")
 
+// Loads new question into question-section placeholder
 function loadQuestion(){
     currentQuestion.textContent = quizData[currentIndex].question
     answerList.innerHTML = ""
@@ -63,12 +64,15 @@ function loadQuestion(){
     }
 }
 
+
+// Saves selected answer for when return to already answered questions
 function updateSelectedAnswer(){
     const selectedRadio = document.querySelector('input[name = answer]:checked')
     if(selectedRadio){
     quizData[currentIndex].selected = selectedRadio.value }
 }
 
+// Updates index+1 and loads question of index
 function nextQuestion(){
     if(currentIndex < quizData.length - 1){
         updateSelectedAnswer()
@@ -78,6 +82,7 @@ function nextQuestion(){
     
 }
 
+// Updates index-1 and loads question of index
 function previousQuestion(){
     if(currentIndex > 0){
         updateSelectedAnswer()
@@ -86,6 +91,7 @@ function previousQuestion(){
     }
 }
 
+// Appends answer to result section placeholder and displays all correct answers
 function displayResults() {
     userScoreElement.textContent = userScore;
     quizData.forEach((question, index) => {
@@ -96,7 +102,7 @@ function displayResults() {
     resultSection.style.display = "block"
 }
 
-
+// Adds all correct answers and displays answer
 function submitFunction(){
     updateSelectedAnswer()
     let totalScore = 0;
@@ -112,8 +118,7 @@ function submitFunction(){
     submitButton.style.visibility = "hidden"
 }
 
-
-
+// Button event listeners and loads first question
 nextButton.addEventListener("click", nextQuestion)
 previousButton.addEventListener("click", previousQuestion)
 submitButton.addEventListener("click", submitFunction)
