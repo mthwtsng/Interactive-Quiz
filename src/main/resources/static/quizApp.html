@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" type = "text/css" href = "stylesheets\quizApp.css">
+    <title>Interactive Quiz</title>
+</head>
+<body>
+    <div class = "quiz-container"> 
+        <header>
+            <h1 id = "title">Interactive Quiz</h1>
+        </header>   
+
+        <main>
+        <div id = "question-section">
+            <p id = "question"></p>
+            <ul id = "answer-list">
+                <li><input type = "radio" name = "answer" value = "joe"></li>
+                <li><input type = "radio" name = "answer" value = "bob"></li>
+                <li><input type = "radio" name = "answer" value = "larry"></li>
+                <li><input type = "radio" name = "answer" value = "frank"></li>
+            </ul>
+        </div>
+        
+        <div id = "button-section">
+            <button class = "navigation-button" id = "previous-button">Previous</button>
+            <button id = "submit-button">Submit</button>
+            <button class = "navigation-button" id = "next-button">Next</button>
+        </div>
+    </div>
+    
+    <div id = "result-section">
+        <h2>Results</h2>
+        <p id = "score">Your Score: <span id = "user-score">0</span></p>
+        <ul id = "correct-answers">
+        </ul>
+
+    </div>
+
+    </main>
+    <script type = "text/javascript" src = quizLogic.js></script>
+</body>
+</html>
